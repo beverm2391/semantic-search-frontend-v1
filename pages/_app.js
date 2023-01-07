@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import { ThemeProvider } from 'next-themes'
 import { Inter } from '@next/font/google';
-import { GeistProvider, CssBaseline } from '@geist-ui/core'
+import { useState } from 'react'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -9,6 +9,10 @@ const inter = Inter({
 });
 
 export default function App({ Component, pageProps }) {
+  const [themeType, setThemeType] = useState('light')
+  const switchThemes = () => {
+    setThemeType(last => (last === 'dark' ? 'light' : 'dark'))
+  }
   return (
     <>
       <style jsx global>
@@ -19,12 +23,9 @@ export default function App({ Component, pageProps }) {
       `}
       </style>
       <ThemeProvider attribute='class'>
-        <GeistProvider>
-          <CssBaseline />
           <main className={`${inter.className}`}>
-            <Component {...pageProps} />
+            <Component {...pageProps}/>
           </main>
-        </GeistProvider>
       </ThemeProvider>
     </>
   )

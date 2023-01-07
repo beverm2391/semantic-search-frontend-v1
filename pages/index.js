@@ -1,15 +1,13 @@
 import Container from '../components/Container'
 import React from 'react'
-import { Button, Text } from '@geist-ui/core'
 
 export default function Index() {
   return (
     <Container>
       <div>
-        <Text h1>
-          Hello world!
-        </Text>
-        <Button>Submit</Button>
+        <h1 className='text-6xl font-bold'>Hello world!</h1>
+        <div className='mt-8'>
+        </div>
       </div>
     </Container>
   )
